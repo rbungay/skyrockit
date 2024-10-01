@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= application.title %></title>
+    <link rel="stylesheet" href="/applications.css" />
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
@@ -17,7 +18,12 @@
     <% } %>
     <p>The status of this application is: <%= application.status %></p>
 
-    <!-- We'll use method-override to allow us to hit a delete route: -->
+    <!-- Add the following link -->
+    <a href="/users/<%= user._id %>/applications/<%= application._id %>/edit">
+      Edit this application
+    </a>
+    <!--  -->
+
     <form
       action="/users/<%= user._id %>/applications/<%= application._id %>?_method=DELETE"
       method="POST"
